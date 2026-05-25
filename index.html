@@ -105,7 +105,7 @@
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 22px;
         margin-top: 54px;
       }
@@ -217,6 +217,28 @@
         z-index: 0;
       }
 
+      .pcard.radar .pcard-thumb {
+        --thumb-bg: linear-gradient(
+          135deg,
+          #0a0f1e 0%,
+          #1a1040 60%,
+          #0a0f1e 100%
+        );
+      }
+      .pcard.radar .pcard-thumb::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 18px,
+          rgba(139, 92, 246, 0.07) 18px,
+          rgba(139, 92, 246, 0.07) 19px
+        );
+        z-index: 0;
+      }
+
       .pcard-body {
         padding: 28px 26px 32px;
         flex: 1;
@@ -271,14 +293,44 @@
       /* === SPOTLIGHT === */
       #spotlight {
         background: #070f1d;
+        text-align: center;
       }
 
-      .spot-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 52px;
-        margin-top: 48px;
-        align-items: center;
+      #spotlight h2 {
+        max-width: 720px;
+        margin: 0 auto 18px;
+        font-size: clamp(1.4rem, 2.8vw, 2rem);
+        line-height: 1.25;
+      }
+
+      #spotlight p.lead {
+        margin: 0 auto 52px;
+      }
+
+      .org-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .org-badge {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-2);
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 10px 18px;
+        transition: border-color 0.2s, color 0.2s;
+      }
+
+      .org-badge:hover {
+        border-color: var(--accent-dim);
+        color: var(--text);
       }
 
       /* === CONTACT === */
@@ -286,8 +338,13 @@
         background: #06101e;
         text-align: center;
       }
-      #contact h2 { margin-bottom: 12px; }
-      #contact p.lead { margin: 0 auto 10px; text-align: center; }
+      #contact h2 {
+        margin-bottom: 12px;
+      }
+      #contact p.lead {
+        margin: 0 auto 10px;
+        text-align: center;
+      }
 
       .contact-meta {
         font-size: 0.82rem;
@@ -302,7 +359,9 @@
         text-align: left;
       }
 
-      .form-group { margin-bottom: 20px; }
+      .form-group {
+        margin-bottom: 20px;
+      }
 
       .form-group label {
         display: block;
@@ -331,13 +390,19 @@
       }
 
       .form-group input::placeholder,
-      .form-group textarea::placeholder { color: var(--text-3); }
+      .form-group textarea::placeholder {
+        color: var(--text-3);
+      }
 
       .form-group input:focus,
-      .form-group textarea:focus { border-color: var(--accent-dim); }
+      .form-group textarea:focus {
+        border-color: var(--accent-dim);
+      }
 
       .form-group.invalid input,
-      .form-group.invalid textarea { border-color: #ef4444; }
+      .form-group.invalid textarea {
+        border-color: #ef4444;
+      }
 
       .field-error {
         display: none;
@@ -345,7 +410,9 @@
         color: #f87171;
         margin-top: 6px;
       }
-      .form-group.invalid .field-error { display: block; }
+      .form-group.invalid .field-error {
+        display: block;
+      }
 
       #submitBtn {
         width: 100%;
@@ -353,7 +420,10 @@
         cursor: pointer;
         border: none;
       }
-      #submitBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+      #submitBtn:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
 
       .form-success {
         max-width: 560px;
@@ -413,7 +483,9 @@
         transition: opacity 0.8s ease;
       }
 
-      .carousel-slide.active { opacity: 1; }
+      .carousel-slide.active {
+        opacity: 1;
+      }
 
       .carousel-slide img {
         width: 100%;
@@ -424,7 +496,12 @@
       .carousel-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(6,10,24,0.85) 0%, rgba(6,10,24,0.1) 45%, transparent 100%);
+        background: linear-gradient(
+          to top,
+          rgba(6, 10, 24, 0.85) 0%,
+          rgba(6, 10, 24, 0.1) 45%,
+          transparent 100%
+        );
         pointer-events: none;
       }
 
@@ -440,7 +517,7 @@
       }
 
       .carousel-label {
-        font-family: 'Outfit', sans-serif;
+        font-family: "Outfit", sans-serif;
       }
 
       .carousel-label-co {
@@ -451,8 +528,12 @@
         margin-bottom: 4px;
       }
 
-      .carousel-label-co.airvrix { color: var(--accent-l); }
-      .carousel-label-co.towerlink { color: #34d399; }
+      .carousel-label-co.airvrix {
+        color: var(--accent-l);
+      }
+      .carousel-label-co.towerlink {
+        color: #34d399;
+      }
 
       .carousel-label-title {
         font-size: 0.82rem;
@@ -474,10 +555,12 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: rgba(255,255,255,0.25);
+        background: rgba(255, 255, 255, 0.25);
         border: none;
         cursor: pointer;
-        transition: background 0.25s, transform 0.25s;
+        transition:
+          background 0.25s,
+          transform 0.25s;
         padding: 0;
       }
 
@@ -493,15 +576,18 @@
         width: 34px;
         height: 34px;
         background: rgba(6, 13, 25, 0.72);
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 13px;
-        transition: background 0.2s, border-color 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
         z-index: 5;
         line-height: 1;
       }
@@ -512,8 +598,12 @@
         color: #fff;
       }
 
-      .carousel-arrow.prev { left: 12px; }
-      .carousel-arrow.next { right: 12px; }
+      .carousel-arrow.prev {
+        left: 12px;
+      }
+      .carousel-arrow.next {
+        right: 12px;
+      }
 
       /* brand overlay for Airvrix thumb card */
       .pcard-thumb .brand-overlay {
@@ -536,10 +626,7 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
-        .spot-grid {
-          grid-template-columns: 1fr;
-          gap: 36px;
-        }
+        .org-badges { gap: 8px; }
       }
     </style>
   </head>
@@ -564,12 +651,13 @@
       <div class="wrap">
         <div class="hero-inner">
           <div class="hero-text">
-            <div class="hero-eyebrow">Gabriel Holdings Inc</div>
-            <h1>Strategic Partners in<br /><em>Defense &amp; Innovation</em></h1>
+            <!-- <div class="hero-eyebrow">Gabriel Holdings Inc</div> -->
+            <h1>Gabriel Holdings <em>Inc.</em></h1>
             <p class="hero-sub">
-              We build and back breakthrough companies at the intersection of
-              aerospace, communications, and next-generation energy — turning
-              validated technology into scalable, real-world impact.
+              Gabriel Holdings Inc. is a U.S. prime contractor delivering
+              aviation safety, non chemical energy storage, expeditionary and
+              stationary power systems, and advanced mission technologies
+              supporting operational readiness across air, sea, land, and space.
             </p>
             <div class="btn-row">
               <a href="#projects" class="btn btn-primary">Our Portfolio</a>
@@ -580,11 +668,14 @@
           <!-- PORTFOLIO CAROUSEL -->
           <div class="hero-carousel" id="heroCarousel">
             <div class="carousel-slide active">
-              <img src="assets/airvrix-1.jpg" alt="Airvrix FOD barrier system" />
+              <img
+                src="assets/airvrix-1.jpg"
+                alt="Airvrix FOD barrier system"
+              />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co airvrix">Airvrix</div>
+                  <div class="carousel-label-co airvrix">Aviation Safety</div>
                   <div class="carousel-label-title">FOD Barrier Technology</div>
                 </div>
               </div>
@@ -594,7 +685,7 @@
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co airvrix">Airvrix</div>
+                  <div class="carousel-label-co airvrix">Aviation Safety</div>
                   <div class="carousel-label-title">Combat-Proven Systems</div>
                 </div>
               </div>
@@ -604,7 +695,7 @@
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co airvrix">Airvrix</div>
+                  <div class="carousel-label-co airvrix">Aviation Safety</div>
                   <div class="carousel-label-title">F-35 JPO Validated</div>
                 </div>
               </div>
@@ -614,7 +705,7 @@
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">TowerLink</div>
+                  <div class="carousel-label-co towerlink">Airfield Management System</div>
                   <div class="carousel-label-title">AI Airport Operations</div>
                 </div>
               </div>
@@ -624,25 +715,36 @@
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">TowerLink</div>
-                  <div class="carousel-label-title">Real-Time ATC Transcription</div>
+                  <div class="carousel-label-co towerlink">Airfield Management System</div>
+                  <div class="carousel-label-title">
+                    Real-Time ATC Transcription
+                  </div>
                 </div>
               </div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/towerlink-3.jpg" alt="TowerLink ground navigation" />
+              <img
+                src="assets/towerlink-3.jpg"
+                alt="TowerLink ground navigation"
+              />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">TowerLink</div>
-                  <div class="carousel-label-title">Digital Ground Navigation</div>
+                  <div class="carousel-label-co towerlink">Airfield Management System</div>
+                  <div class="carousel-label-title">
+                    Digital Ground Navigation
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Controls -->
-            <button class="carousel-arrow prev" aria-label="Previous">&#8592;</button>
-            <button class="carousel-arrow next" aria-label="Next">&#8594;</button>
+            <button class="carousel-arrow prev" aria-label="Previous">
+              &#8592;
+            </button>
+            <button class="carousel-arrow next" aria-label="Next">
+              &#8594;
+            </button>
             <div class="carousel-dots" id="carouselDots"></div>
           </div>
         </div>
@@ -660,13 +762,12 @@
         <div class="about-grid">
           <div class="about-body">
             <p>
-              Gabriel Holdings Inc (GHI) is a strategic holding and advisory
-              company focused on deep-tech ventures at the intersection of
-              defense, aerospace, and critical infrastructure. We identify,
-              partner with, and scale breakthrough companies from early
-              validation through large-scale deployment.
+              Founded in 2013, Gabriel Holdings Inc. is a U.S. defense
+              contractor and prime integrator advancing mission capability
+              through innovation, systems integration, and trusted government
+              and industry partnerships.
             </p>
-            <p>
+            <!-- <p>
               We go beyond capital. GHI brings government relationships, defense
               expertise, operational experience, and a network that opens doors
               — accelerating the path from prototype to program of record.
@@ -675,7 +776,7 @@
               Our portfolio companies share a common thread: they solve real
               problems for real missions, backed by government validation and
               built for significant scale.
-            </p>
+            </p> -->
           </div>
 
           <div class="pillars">
@@ -708,23 +809,21 @@
         <div class="label">Portfolio</div>
         <h2>Our Projects</h2>
         <p class="lead">
-          A focused portfolio of companies building critical capabilities for
-          defense, infrastructure, and energy.
+          Our project portfolio includes aviation safety and airfield management
+          systems, resilient non chemical energy and microgrid solutions, and
+          advanced radar and sensing technologies supporting mission readiness
+          and infrastructure resilience.
         </p>
 
         <div class="projects-grid">
-          <!-- Airvrix -->
+          <!-- Aviation Safety -->
           <a href="airvrix.html" class="pcard airvrix">
             <div class="pcard-thumb">
-              <img
-                src="assets/airvrix-1.jpg"
-                alt="Airvrix — FOD barrier systems"
-              />
-              <!-- <img src="assets/airvrix-hero.png" class="brand-overlay" alt="" /> -->
+              <img src="assets/airvrix-1.jpg" alt="Aviation Safety — FOD barrier systems" />
             </div>
             <div class="pcard-body">
               <div class="pcard-tag">Aerospace · Defense</div>
-              <div class="pcard-name">Airvrix</div>
+              <div class="pcard-name">Aviation Safety</div>
               <p class="pcard-desc">
                 The world's only collapsible FOD barrier — combat-proven on
                 active airbases, validated by the F-35 JPO, and classified as an
@@ -734,17 +833,14 @@
             </div>
           </a>
 
-          <!-- TowerLink -->
+          <!-- Airfield Management System -->
           <a href="towerlink.html" class="pcard towerlink">
             <div class="pcard-thumb">
-              <img
-                src="assets/towerlink-tower.png"
-                alt="TowerLink — AI airport operations"
-              />
+              <img src="assets/towerlink-tower.png" alt="Airfield Management System — AI airport operations" />
             </div>
             <div class="pcard-body">
               <div class="pcard-tag">Aviation AI</div>
-              <div class="pcard-name">TowerLink</div>
+              <div class="pcard-name">Airfield Management System</div>
               <p class="pcard-desc">
                 AI-powered airport operations platform — real-time conflict
                 detection, aviation transcription, and digital ground navigation
@@ -754,21 +850,31 @@
             </div>
           </a>
 
-          <!-- Enercap -->
+          <!-- Energy Solutions -->
           <a href="enercap.html" class="pcard enercap">
             <div class="pcard-thumb">
-              <!-- Replace with: assets/enercap-thumb.jpg -->
-              <img
-                src="assets/enercap-thumb.webp"
-                alt="Enercap Energy — defense-grade energy storage"
-              />
+              <img src="assets/enercap-thumb.webp" alt="Energy Solutions — defense-grade energy storage" />
             </div>
             <div class="pcard-body">
               <div class="pcard-tag">Energy · Defense</div>
-              <div class="pcard-name">Enercap Energy</div>
+              <div class="pcard-name">Energy Solutions</div>
               <p class="pcard-desc">
                 Defense-grade non-lithium energy storage platforms, validated by
                 the Defense Innovation Unit and U.S. Air Force under Title 10.
+              </p>
+              <span class="pcard-cta">View Project</span>
+            </div>
+          </a>
+
+          <!-- Advanced Radar & Sensing -->
+          <a href="#" class="pcard radar">
+            <div class="pcard-thumb"></div>
+            <div class="pcard-body">
+              <div class="pcard-tag">Defense · Sensing</div>
+              <div class="pcard-name">Advanced Radar &amp; Sensing</div>
+              <p class="pcard-desc">
+                Advanced radar and sensing technologies supporting mission
+                readiness and infrastructure resilience.
               </p>
               <span class="pcard-cta">View Project</span>
             </div>
@@ -782,52 +888,20 @@
     <!-- SPOTLIGHT -->
     <section id="spotlight">
       <div class="wrap">
-        <div class="label">Featured Achievement</div>
-        <h2>From Validation to Scale</h2>
+        <div class="label">Who We Support</div>
+        <h2>Supporting U.S. Government, defense, aerospace, and allied mission partners through innovation, integration, and operational experience.</h2>
+        <p class="lead">
+          Trusted by the organizations that defend, power, and connect America's most critical missions.
+        </p>
 
-        <div class="spot-grid">
-          <div class="highlight-box">
-            <div class="highlight-quote">
-              "GHI partnered with Enercap to advance a
-              <span>DIU-validated prototype</span> into the foundation for
-              scalable U.S. defense deployment."
-            </div>
-            <div class="highlight-attr">
-              GHI × Enercap Energy &nbsp;·&nbsp; DIU OTA Framework &nbsp;·&nbsp;
-              U.S. Air Force &nbsp;·&nbsp; Title 10
-            </div>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="dot g"></div>
-              <div class="stat-t">DIU OTA Contract — Successfully Executed</div>
-            </div>
-            <div class="stat">
-              <div class="dot g"></div>
-              <div class="stat-t">
-                Non-Lithium Platform Validated · U.S. Air Force
-              </div>
-            </div>
-            <div class="stat">
-              <div class="dot"></div>
-              <div class="stat-t">
-                Space Force / AFRL — Confirmed PO · 1,000 KWh
-              </div>
-            </div>
-            <div class="stat">
-              <div class="dot"></div>
-              <div class="stat-t">
-                ERCIP · Army · Navy · Marine Corps Pipeline
-              </div>
-            </div>
-            <div class="stat">
-              <div class="dot"></div>
-              <div class="stat-t">
-                11 Military Aircraft Platforms Compatible
-              </div>
-            </div>
-          </div>
+        <div class="org-badges">
+          <span class="org-badge">OSD</span>
+          <span class="org-badge">DLA</span>
+          <span class="org-badge">Department of the Navy</span>
+          <span class="org-badge">FBI</span>
+          <span class="org-badge">DIU</span>
+          <span class="org-badge">AFRL</span>
+          <span class="org-badge">U.S. Air Force</span>
         </div>
       </div>
     </section>
@@ -844,77 +918,113 @@
           our portfolio?
         </p>
 
-        <form id="contactForm" action="https://formspree.io/f/mnjrgddr" method="POST" novalidate>
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/mnjrgddr"
+          method="POST"
+          novalidate
+        >
           <div class="form-group">
             <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            <input
+              type="text"
+              id="cf-name"
+              name="name"
+              placeholder="Your name"
+              required
+            />
             <span class="field-error">Please enter your name.</span>
           </div>
           <div class="form-group">
             <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required />
+            <input
+              type="email"
+              id="cf-email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
             <span class="field-error">Please enter a valid email address.</span>
           </div>
           <div class="form-group">
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell us about your interest…" required></textarea>
+            <textarea
+              id="cf-message"
+              name="message"
+              rows="5"
+              placeholder="Tell us about your interest…"
+              required
+            ></textarea>
             <span class="field-error">Please enter a message.</span>
           </div>
-          <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
+          <button type="submit" id="submitBtn" class="btn btn-primary">
+            Send Message
+          </button>
         </form>
 
         <div id="formSuccess" class="form-success" hidden>
           <div class="form-success-icon">✓</div>
           <div class="form-success-title">Message sent</div>
-          <div class="form-success-body">Thank you — we'll be in touch shortly.</div>
+          <div class="form-success-body">
+            Thank you — we'll be in touch shortly.
+          </div>
         </div>
 
         <div id="formError" class="form-error-banner" hidden>
           Something went wrong. Email us directly at
-          <a href="mailto:info@gabrielholdingsinc.com" style="color:inherit;text-decoration:underline;">info@gabrielholdingsinc.com</a>.
+          <a
+            href="mailto:info@gabrielholdingsinc.com"
+            style="color: inherit; text-decoration: underline"
+            >info@gabrielholdingsinc.com</a
+          >.
         </div>
 
-        <div class="contact-meta">Gabriel Holdings Inc &nbsp;·&nbsp; United States</div>
+        <div class="contact-meta">
+          Gabriel Holdings Inc &nbsp;·&nbsp; United States
+        </div>
       </div>
     </section>
 
     <!-- CONTACT FORM SCRIPT -->
     <script>
       (function () {
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successEl = document.getElementById('formSuccess');
-        const errorEl = document.getElementById('formError');
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const successEl = document.getElementById("formSuccess");
+        const errorEl = document.getElementById("formError");
 
         function validate(input) {
-          const group = input.closest('.form-group');
+          const group = input.closest(".form-group");
           const ok = input.checkValidity();
-          group.classList.toggle('invalid', !ok);
+          group.classList.toggle("invalid", !ok);
           return ok;
         }
 
-        form.querySelectorAll('input, textarea').forEach(el => {
-          el.addEventListener('blur', () => validate(el));
-          el.addEventListener('input', () => {
-            if (el.closest('.form-group').classList.contains('invalid')) validate(el);
+        form.querySelectorAll("input, textarea").forEach((el) => {
+          el.addEventListener("blur", () => validate(el));
+          el.addEventListener("input", () => {
+            if (el.closest(".form-group").classList.contains("invalid"))
+              validate(el);
           });
         });
 
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener("submit", async (e) => {
           e.preventDefault();
           let ok = true;
-          form.querySelectorAll('input, textarea').forEach(el => { if (!validate(el)) ok = false; });
+          form.querySelectorAll("input, textarea").forEach((el) => {
+            if (!validate(el)) ok = false;
+          });
           if (!ok) return;
 
           submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending…';
+          submitBtn.textContent = "Sending…";
           errorEl.hidden = true;
 
           try {
             const res = await fetch(form.action, {
-              method: 'POST',
+              method: "POST",
               body: new FormData(form),
-              headers: { Accept: 'application/json' },
+              headers: { Accept: "application/json" },
             });
             if (!res.ok) throw new Error();
             form.hidden = true;
@@ -922,7 +1032,7 @@
           } catch {
             errorEl.hidden = false;
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            submitBtn.textContent = "Send Message";
           }
         });
       })();
@@ -931,35 +1041,53 @@
     <!-- CAROUSEL SCRIPT -->
     <script>
       (function () {
-        const carousel = document.getElementById('heroCarousel');
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dotsEl = document.getElementById('carouselDots');
+        const carousel = document.getElementById("heroCarousel");
+        const slides = carousel.querySelectorAll(".carousel-slide");
+        const dotsEl = document.getElementById("carouselDots");
         let current = 0;
         let timer;
 
         slides.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-          dot.addEventListener('click', () => { show(i); resetTimer(); });
+          const dot = document.createElement("button");
+          dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+          dot.setAttribute("aria-label", "Slide " + (i + 1));
+          dot.addEventListener("click", () => {
+            show(i);
+            resetTimer();
+          });
           dotsEl.appendChild(dot);
         });
 
-        const dots = dotsEl.querySelectorAll('.carousel-dot');
+        const dots = dotsEl.querySelectorAll(".carousel-dot");
 
         function show(n) {
-          slides[current].classList.remove('active');
-          dots[current].classList.remove('active');
+          slides[current].classList.remove("active");
+          dots[current].classList.remove("active");
           current = (n + slides.length) % slides.length;
-          slides[current].classList.add('active');
-          dots[current].classList.add('active');
+          slides[current].classList.add("active");
+          dots[current].classList.add("active");
         }
 
-        function autoplay() { timer = setInterval(() => show(current + 1), 4500); }
-        function resetTimer() { clearInterval(timer); autoplay(); }
+        function autoplay() {
+          timer = setInterval(() => show(current + 1), 4500);
+        }
+        function resetTimer() {
+          clearInterval(timer);
+          autoplay();
+        }
 
-        carousel.querySelector('.carousel-arrow.prev').addEventListener('click', () => { show(current - 1); resetTimer(); });
-        carousel.querySelector('.carousel-arrow.next').addEventListener('click', () => { show(current + 1); resetTimer(); });
+        carousel
+          .querySelector(".carousel-arrow.prev")
+          .addEventListener("click", () => {
+            show(current - 1);
+            resetTimer();
+          });
+        carousel
+          .querySelector(".carousel-arrow.next")
+          .addEventListener("click", () => {
+            show(current + 1);
+            resetTimer();
+          });
 
         autoplay();
       })();
