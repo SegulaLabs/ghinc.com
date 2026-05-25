@@ -11,7 +11,7 @@
       content="Gabriel Holdings Inc partners with breakthrough companies in defense, aerospace, and energy to scale validated technology into real-world impact."
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -307,30 +307,50 @@
         margin: 0 auto 52px;
       }
 
-      .org-badges {
+      .partner-logos {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 20px;
+        margin-top: 52px;
       }
 
-      .org-badge {
-        font-family: "Outfit", sans-serif;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--text-2);
+      .partner-logo {
         background: var(--bg-card);
         border: 1px solid var(--border);
-        border-radius: 4px;
-        padding: 10px 18px;
-        transition: border-color 0.2s, color 0.2s;
+        border-radius: 8px;
+        padding: 20px 16px 14px;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        transition: border-color 0.2s;
       }
 
-      .org-badge:hover {
-        border-color: var(--accent-dim);
-        color: var(--text);
+      .partner-logo:hover { border-color: var(--border-a); }
+
+      .partner-logo img {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+        filter: grayscale(0.1) brightness(1.05);
+        transition: filter 0.25s;
+      }
+
+      .partner-logo:hover img {
+        filter: grayscale(0) brightness(1.15);
+      }
+
+      .partner-logo span {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.58rem;
+        font-weight: 600;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        text-align: center;
+        line-height: 1.4;
       }
 
       /* === CONTACT === */
@@ -626,7 +646,9 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
-        .org-badges { gap: 8px; }
+        .partner-logos { gap: 12px; }
+        .partner-logo { width: 100px; }
+        .partner-logo img { width: 56px; height: 56px; }
       }
     </style>
   </head>
@@ -690,7 +712,7 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-slide">
+            <!-- <div class="carousel-slide">
               <img src="assets/airvrix-3.jpg" alt="Airvrix F-35 validated" />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
@@ -699,30 +721,34 @@
                   <div class="carousel-label-title">F-35 JPO Validated</div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="carousel-slide">
-              <img src="assets/towerlink-1.jpg" alt="TowerLink AI operations" />
+              <img src="assets/towerlink-1.jpg" alt="TowerLink operations" />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">Airfield Management System</div>
-                  <div class="carousel-label-title">AI Airport Operations</div>
+                  <div class="carousel-label-co towerlink">
+                    Airfield Management System
+                  </div>
+                  <div class="carousel-label-title">Airport Operations</div>
                 </div>
               </div>
             </div>
-            <div class="carousel-slide">
+            <!-- <div class="carousel-slide">
               <img src="assets/towerlink-2.jpg" alt="TowerLink ATC interface" />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">Airfield Management System</div>
+                  <div class="carousel-label-co towerlink">
+                    Airfield Management System
+                  </div>
                   <div class="carousel-label-title">
                     Real-Time ATC Transcription
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="carousel-slide">
+            </div> -->
+            <!-- <div class="carousel-slide">
               <img
                 src="assets/towerlink-3.jpg"
                 alt="TowerLink ground navigation"
@@ -730,13 +756,15 @@
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
                 <div class="carousel-label">
-                  <div class="carousel-label-co towerlink">Airfield Management System</div>
+                  <div class="carousel-label-co towerlink">
+                    Airfield Management System
+                  </div>
                   <div class="carousel-label-title">
                     Digital Ground Navigation
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- Controls -->
             <button class="carousel-arrow prev" aria-label="Previous">
@@ -757,7 +785,7 @@
     <section id="about">
       <div class="wrap">
         <div class="label">About Us</div>
-        <h2>Who We Are</h2>
+        <h2>Company Overview</h2>
 
         <div class="about-grid">
           <div class="about-body">
@@ -807,7 +835,7 @@
     <section id="projects">
       <div class="wrap">
         <div class="label">Portfolio</div>
-        <h2>Our Projects</h2>
+        <h2>Programs & Capabilities</h2>
         <p class="lead">
           Our project portfolio includes aviation safety and airfield management
           systems, resilient non chemical energy and microgrid solutions, and
@@ -819,7 +847,10 @@
           <!-- Aviation Safety -->
           <a href="airvrix.html" class="pcard airvrix">
             <div class="pcard-thumb">
-              <img src="assets/airvrix-1.jpg" alt="Aviation Safety — FOD barrier systems" />
+              <img
+                src="assets/airvrix-1.jpg"
+                alt="Aviation Safety — FOD barrier systems"
+              />
             </div>
             <div class="pcard-body">
               <div class="pcard-tag">Aerospace · Defense</div>
@@ -836,15 +867,18 @@
           <!-- Airfield Management System -->
           <a href="towerlink.html" class="pcard towerlink">
             <div class="pcard-thumb">
-              <img src="assets/towerlink-tower.png" alt="Airfield Management System — AI airport operations" />
+              <img
+                src="assets/towerlink-tower.png"
+                alt="Airfield Management System — AI airport operations"
+              />
             </div>
             <div class="pcard-body">
-              <div class="pcard-tag">Aviation AI</div>
+              <div class="pcard-tag">Digitalize Transformation</div>
               <div class="pcard-name">Airfield Management System</div>
               <p class="pcard-desc">
-                AI-powered airport operations platform — real-time conflict
-                detection, aviation transcription, and digital ground navigation
-                for military and civilian airfields.
+                Airport operations platform — real-time conflict detection,
+                aviation transcription, and digital ground navigation for
+                military and civilian airfields.
               </p>
               <span class="pcard-cta">View Project</span>
             </div>
@@ -853,19 +887,21 @@
           <!-- Energy Storage -->
           <a href="enercap.html" class="pcard enercap">
             <div class="pcard-thumb">
-              <img src="assets/enercap-thumb.webp" alt="Energy Storage — defense-grade energy storage" />
+              <img
+                src="assets/enercap-thumb.webp"
+                alt="Energy Storage — defense-grade energy storage"
+              />
             </div>
             <div class="pcard-body">
-              <div class="pcard-tag">Energy · Defense</div>
+              <div class="pcard-tag">Energy</div>
               <div class="pcard-name">Energy Storage</div>
               <p class="pcard-desc">
-                Defense-grade non-lithium energy storage platforms, validated by
+                Military grade chemical energy storage platforms, validated by
                 the Defense Innovation Unit and U.S. Air Force under Title 10.
               </p>
               <span class="pcard-cta">View Project</span>
             </div>
           </a>
-
         </div>
       </div>
     </section>
@@ -875,20 +911,45 @@
     <!-- SPOTLIGHT -->
     <section id="spotlight">
       <div class="wrap">
-        <div class="label">Who We Support</div>
-        <h2>Supporting U.S. Government, defense, aerospace, and allied mission partners through innovation, integration, and operational experience.</h2>
-        <p class="lead">
-          Trusted by the organizations that defend, power, and connect America's most critical missions.
-        </p>
+        <div class="label">Customers & Mission Partners</div>
+        <h2>
+          Supporting U.S. Government, defense, aerospace, and allied mission
+          partners through innovation, integration, and operational experience.
+        </h2>
+        <!-- <p class="lead">
+          Trusted by the organizations that defend, power, and connect America's
+          most critical missions.
+        </p> -->
 
-        <div class="org-badges">
-          <span class="org-badge">OSD</span>
-          <span class="org-badge">DLA</span>
-          <span class="org-badge">Department of the Navy</span>
-          <span class="org-badge">FBI</span>
-          <span class="org-badge">DIU</span>
-          <span class="org-badge">AFRL</span>
-          <span class="org-badge">U.S. Air Force</span>
+        <div class="partner-logos">
+          <div class="partner-logo">
+            <img src="assets/partner-osd.png" alt="OSD" />
+            <span>OSD</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-dla.png" alt="DLA" />
+            <span>DLA</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-navy.png" alt="Department of the Navy" />
+            <span>Dept. of the Navy</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-fbi.png" alt="FBI" />
+            <span>FBI</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-diu.png" alt="DIU" />
+            <span>DIU</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-afrl.png" alt="AFRL" />
+            <span>AFRL</span>
+          </div>
+          <div class="partner-logo">
+            <img src="assets/partner-usaf.png" alt="U.S. Air Force" />
+            <span>U.S. Air Force</span>
+          </div>
         </div>
       </div>
     </section>
