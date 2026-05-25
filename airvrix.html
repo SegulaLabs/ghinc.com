@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airvrix — Gabriel Holdings Inc</title>
+    <meta
+      name="description"
+      content="Airvrix manufactures the world's only collapsible FOD barrier — combat-proven on active airbases and validated by the F-35 Joint Program Office and U.S. Navy."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Airvrix accent override — aviation blue */
+      :root {
+        --accent: #1a7fd4;
+        --accent-l: #4aa8f0;
+        --accent-dim: #0d4070;
+      }
+
+      /* Hero: deep sky gradient with diagonal flight-path lines */
+      .project-hero {
+        background: linear-gradient(
+          160deg,
+          #040e1e 0%,
+          #061828 40%,
+          #0a2855 70%,
+          #040e1e 100%
+        );
+      }
+
+      .flight-lines {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .flight-lines::before,
+      .flight-lines::after {
+        content: "";
+        position: absolute;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(74, 168, 240, 0.07),
+          transparent
+        );
+        width: 200%;
+        height: 1px;
+        transform-origin: left center;
+      }
+
+      .flight-lines::before {
+        top: 38%;
+        transform: rotate(-8deg) translateX(-10%);
+      }
+
+      .flight-lines::after {
+        top: 55%;
+        transform: rotate(-8deg) translateX(-10%);
+      }
+
+      /* Grid pattern overlay */
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(74, 168, 240, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(74, 168, 240, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        z-index: 0;
+      }
+
+      /* === ABOUT === */
+      #about {
+        background: #06101e;
+      }
+
+      .about-cols {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 60px;
+        margin-top: 52px;
+        align-items: start;
+      }
+
+      .body-text p {
+        font-size: 0.97rem;
+        color: var(--text-2);
+        line-height: 1.9;
+        margin-bottom: 18px;
+      }
+
+      /* === CAPABILITIES === */
+      #capabilities {
+        background: var(--bg);
+      }
+
+      .cap-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 50px;
+      }
+
+      .cap-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 28px 22px;
+      }
+
+      .cap-icon {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--border-a);
+        border-radius: 6px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+
+      .cap-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+
+      .cap-desc {
+        font-size: 0.83rem;
+        color: var(--text-2);
+        line-height: 1.75;
+      }
+
+      /* === GALLERY === */
+      #gallery {
+        background: #06101e;
+      }
+
+      /* Airvrix gallery gradient tones */
+      .airvrix-grad-1 {
+        --photo-bg: linear-gradient(
+          135deg,
+          #041422 0%,
+          #0b2a5a 50%,
+          #041422 100%
+        );
+      }
+      .airvrix-grad-2 {
+        --photo-bg: linear-gradient(
+          135deg,
+          #040e1e 0%,
+          #082045 50%,
+          #040e1e 100%
+        );
+      }
+      .airvrix-grad-3 {
+        --photo-bg: linear-gradient(
+          135deg,
+          #04101f 0%,
+          #0c2e60 50%,
+          #04101f 100%
+        );
+      }
+      .airvrix-grad-4 {
+        --photo-bg: linear-gradient(
+          160deg,
+          #040e1e 0%,
+          #0a2455 60%,
+          #040e1e 100%
+        );
+      }
+
+      /* Diagonal lines on empty photo items */
+      .photo-item.airvrix-grad-1::after,
+      .photo-item.airvrix-grad-2::after,
+      .photo-item.airvrix-grad-3::after,
+      .photo-item.airvrix-grad-4::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 30px,
+          rgba(74, 168, 240, 0.04) 30px,
+          rgba(74, 168, 240, 0.04) 31px
+        );
+        z-index: 0;
+      }
+
+      /* === IMPACT === */
+      #impact {
+        background: #06101e;
+      }
+
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 50px;
+      }
+
+      .impact-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 36px 28px;
+      }
+
+      .impact-card.accent {
+        border-color: var(--border-a);
+        background: rgba(26, 127, 212, 0.08);
+      }
+
+      .impact-num {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        font-weight: 800;
+        color: var(--accent-l);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+
+      .impact-label {
+        font-size: 0.87rem;
+        color: var(--text-2);
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      .impact-source {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.62rem;
+        font-weight: 600;
+        color: var(--accent-l);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      /* === BRAND OVERLAY === */
+      .brand-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: screen;
+        opacity: 0.75;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      /* === CTA === */
+      #cta {
+        background: var(--bg);
+        text-align: center;
+        padding: 90px 44px;
+      }
+      #cta h2 {
+        margin-bottom: 16px;
+      }
+      #cta p.lead {
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 820px) {
+        .about-cols {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .cap-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .impact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .cap-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="assets/LOGO_output-smallpngtools_cropped.png"
+          alt="Gabriel Holdings Inc"
+        />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-back">Gabriel Holdings</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <!-- Background photo (replace with screenshot from airvrix.com) -->
+      <div class="project-hero-bg">
+        <img src="assets/airvrix-1.jpg" alt="Airvrix — FOD barrier systems" />
+        <!-- <img src="assets/airvrix-hero.png" class="brand-overlay" alt=""> -->
+      </div>
+      <div class="flight-lines"></div>
+      <div class="hero-grid"></div>
+      <div class="project-hero-fade"></div>
+
+      <div class="project-hero-content">
+        <div class="label">Aerospace · Defense · GHI Portfolio</div>
+        <h1>Airvrix</h1>
+        <p
+          class="hero-sub"
+          style="
+            max-width: 540px;
+            font-size: 1.05rem;
+            color: var(--text-2);
+            line-height: 1.8;
+            margin-top: 0;
+            margin-bottom: 0;
+          "
+        >
+          The world's only collapsible foreign object debris barrier — patented
+          technology that eliminates runway FOD before it reaches engines,
+          tires, or fuselages.
+        </p>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="label">Overview</div>
+        <h2>Eliminating FOD from Active Runways</h2>
+
+        <div class="about-cols">
+          <div class="body-text">
+            <p>
+              Airvrix manufactures the world's only collapsible foreign object
+              debris (FOD) barrier — a patented runway safety system that
+              intercepts debris before it reaches active aircraft. The barrier
+              folds flat for vehicle and aircraft crossings, delivering
+              continuous protection without interrupting airfield operations.
+            </p>
+            <p>
+              Foreign object debris costs the global aviation industry $22.7
+              billion per year in direct damages, operational delays, and
+              indirect costs. On military airbases, FOD incidents threaten
+              high-value assets — jet engines, tires, fuselages — and mission
+              readiness. Airvrix eliminates 90% of FOD incidents, independently
+              validated through F-35 JPO testing.
+            </p>
+            <p>
+              As a GHI portfolio company, Airvrix benefits from defense
+              relationships and government expertise that accelerate deployment
+              from validated prototype to full-scale adoption across military
+              and civilian airfields worldwide.
+            </p>
+          </div>
+
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-n">Mission</div>
+              <div class="pillar-t">Eliminate Runway FOD</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-n">Technology</div>
+              <div class="pillar-t">Patented Collapsible Barrier</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-n">Validation</div>
+              <div class="pillar-t">F-35 JPO · U.S. Navy</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-n">Stage</div>
+              <div class="pillar-t">Combat-Proven → Scaling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="div" />
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="wrap">
+        <div class="label">Technology</div>
+        <h2>The Airvrix Barrier System</h2>
+        <p class="lead">
+          Patented collapsible FOD barrier engineered to intercept debris before
+          it reaches active aircraft — without disrupting airfield operations.
+        </p>
+
+        <div class="cap-grid">
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">Collapsible Design</div>
+            <p class="cap-desc">
+              The world's only collapsible FOD barrier. Folds flat to allow
+              vehicle and aircraft crossings while maintaining continuous
+              protection across active taxiways and runway intersections.
+            </p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">Optimized 300mm Height</div>
+            <p class="cap-desc">
+              Engineered at 300mm — the optimal height to intercept common
+              foreign object debris before jet engines, tires, and fuselages are
+              exposed to damage.
+            </p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">Jet Blast Resistant</div>
+            <p class="cap-desc">
+              Structural integrity maintained under extreme jet blast and high
+              wind velocities generated by military and commercial aircraft on
+              active airfields.
+            </p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">All-Weather Performance</div>
+            <p class="cap-desc">
+              Built-in drainage and all-weather construction delivers consistent
+              FOD protection regardless of weather conditions or operational
+              tempo — day or night.
+            </p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">F-35 JPO Validated</div>
+            <p class="cap-desc">
+              Combat-proven on active airbases with independent validation from
+              the F-35 Joint Program Office — the most demanding fighter
+              aircraft program in U.S. military service.
+            </p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-icon">✦</div>
+            <div class="cap-title">U.S. Navy Urgent Need</div>
+            <p class="cap-desc">
+              Officially classified as an Urgent Need by the U.S. Navy,
+              accelerating procurement and deployment to active naval air
+              stations worldwide.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="div" />
+
+    <!-- IMPACT -->
+    <section id="impact">
+      <div class="wrap">
+        <div class="label">By the Numbers</div>
+        <h2>Proven Results</h2>
+        <p class="lead">
+          Independent testing and operational deployment data across military
+          and civilian airfields.
+        </p>
+
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-num">$22.7B</div>
+            <div class="impact-label">
+              Total global FOD impact per year — direct damages, operational
+              delays, and indirect costs
+            </div>
+            <div class="impact-source">FAA, 2023</div>
+          </div>
+          <div class="impact-card accent">
+            <div class="impact-num">90%</div>
+            <div class="impact-label">
+              FOD reduction achieved in F-35 Joint Program Office independent
+              testing
+            </div>
+            <div class="impact-source">F-35 JPO Validation</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-num">98%</div>
+            <div class="impact-label">
+              Reduction in recurring FOD incidents following Airvrix barrier
+              installation
+            </div>
+            <div class="impact-source">Independent Validation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="div" />
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="wrap">
+        <div class="label">Gallery</div>
+        <h2>In Action</h2>
+
+        <!--
+        PHOTOS: Drop in screenshots from airvrix.com
+        Recommended filenames:
+          assets/airvrix-1.jpg  (hero/main product shot)
+          assets/airvrix-2.jpg  (technology detail)
+          assets/airvrix-3.jpg  (deployment or mission context)
+          assets/airvrix-4.jpg  (team or facility)
+        Run: bash fetch-images.sh to auto-download
+      -->
+        <div class="photo-grid two-col" style="margin-top: 48px">
+          <div class="photo-item wide span2 airvrix-grad-1">
+            <img src="assets/airvrix-1.jpg" alt="Airvrix aerial platform" />
+          </div>
+          <div class="photo-item wide airvrix-grad-2">
+            <img src="assets/airvrix-2.jpg" alt="Airvrix technology" />
+          </div>
+          <div class="photo-item wide airvrix-grad-3">
+            <img src="assets/airvrix-3.jpg" alt="Airvrix in operation" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="div" />
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="wrap">
+        <div class="label">Gabriel Holdings Inc</div>
+        <h2>Backed by GHI</h2>
+        <p class="lead">
+          Airvrix is a GHI portfolio company — backed by defense relationships
+          and government expertise that accelerate deployment at military and
+          civilian airfields worldwide.
+        </p>
+        <div class="btn-row" style="justify-content: center; margin-top: 36px">
+          <a href="index.html" class="btn btn-primary">Back to GHI</a>
+          <a href="index.html#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="foot-copy">
+        © 2025 Gabriel Holdings Inc. All rights reserved.
+      </div>
+      <div class="foot-links">
+        <a href="index.html">GHI Home</a>
+        <a href="towerlink.html">TowerLink</a>
+        <a href="enercap.html">Enercap</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Temp / intermediate files
+.tmp/
+
+# Dev container & editor config
+.devcontainer/
+.devcontainer-original/
+.vscode/
+
+# Claude Code project files
+.claude/
+skills/
+CLAUDE.md
+
+# Working data & design files (not part of the public site)
+data/
+design/
+
+# Reference PDFs and utility scripts
+*.pdf
+download_assets.py
+fetch-images.sh
