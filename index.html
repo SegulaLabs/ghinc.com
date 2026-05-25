@@ -970,7 +970,7 @@
 
         <form
           id="contactForm"
-          action="https://formspree.io/f/mnjrgddr"
+          action="https://ghinc.com/contact.php"
           method="POST"
           novalidate
         >
@@ -1007,6 +1007,8 @@
             ></textarea>
             <span class="field-error">Please enter a message.</span>
           </div>
+          <!-- Honeypot: hidden from humans, bots fill it and get silently ignored -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
           <button type="submit" id="submitBtn" class="btn btn-primary">
             Send Message
           </button>
