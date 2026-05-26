@@ -290,7 +290,9 @@
         content: " →";
       }
 
-      .pcard-cta { display: none; }
+      .pcard-cta {
+        display: none;
+      }
 
       /* === SPOTLIGHT === */
       #spotlight {
@@ -330,7 +332,9 @@
         transition: border-color 0.2s;
       }
 
-      .partner-logo:hover { border-color: var(--border-a); }
+      .partner-logo:hover {
+        border-color: var(--border-a);
+      }
 
       .partner-logo img {
         width: 72px;
@@ -648,9 +652,16 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
-        .partner-logos { gap: 12px; }
-        .partner-logo { width: 100px; }
-        .partner-logo img { width: 56px; height: 56px; }
+        .partner-logos {
+          gap: 12px;
+        }
+        .partner-logo {
+          width: 100px;
+        }
+        .partner-logo img {
+          width: 56px;
+          height: 56px;
+        }
       }
     </style>
   </head>
@@ -704,7 +715,7 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-slide">
+            <!-- <div class="carousel-slide">
               <img src="assets/airvrix-2.jpg" alt="Airvrix on active airbase" />
               <div class="carousel-overlay"></div>
               <div class="carousel-caption">
@@ -713,7 +724,7 @@
                   <div class="carousel-label-title">Combat-Proven Systems</div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="carousel-slide">
               <img src="assets/airvrix-3.jpg" alt="Airvrix F-35 validated" />
               <div class="carousel-overlay"></div>
@@ -767,6 +778,17 @@
                 </div>
               </div>
             </div> -->
+
+            <div class="carousel-slide">
+              <img src="assets/battery_storage.png" alt="Energy Storage system" />
+              <div class="carousel-overlay"></div>
+              <div class="carousel-caption">
+                <div class="carousel-label">
+                  <div class="carousel-label-co airvrix">Energy Storage</div>
+                  <div class="carousel-label-title">Non-Chemical Power Systems</div>
+                </div>
+              </div>
+            </div>
 
             <!-- Controls -->
             <button class="carousel-arrow prev" aria-label="Previous">
@@ -890,7 +912,7 @@
           <a class="pcard enercap">
             <div class="pcard-thumb">
               <img
-                src="assets/enercap-thumb.webp"
+                src="assets/battery_storage.png"
                 alt="Energy Storage — defense-grade energy storage"
               />
             </div>
@@ -1008,7 +1030,13 @@
             <span class="field-error">Please enter a message.</span>
           </div>
           <!-- Honeypot: hidden from humans, bots fill it and get silently ignored -->
-          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+          <input
+            type="text"
+            name="website"
+            style="display: none"
+            tabindex="-1"
+            autocomplete="off"
+          />
           <button type="submit" id="submitBtn" class="btn btn-primary">
             Send Message
           </button>
