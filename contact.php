@@ -60,7 +60,7 @@ $to      = 'ari@ghinc.com';
 $subject = 'New message from GHI contact form';
 $body    = "Name:    $name\nEmail:   $email\n\nMessage:\n$message";
 $headers = implode("\r\n", [
-    'From: noreply@ghinc.com',
+    'From: ari@ghinc.com',
     "Reply-To: $name <$email>",
     'X-Mailer: PHP/' . PHP_VERSION,
     'Content-Type: text/plain; charset=UTF-8',
@@ -71,5 +71,5 @@ if (mail($to, $subject, $body, $headers)) {
     echo json_encode(['success' => true]);
 } else {
     http_response_code(500);
-    echo json_encode(['error' => 'Failed to send. Please email us directly at ari@ghinc.com.']);
+    echo json_encode(['error' => 'Failed to send. Please try again later.']);
 }

@@ -1056,12 +1056,7 @@
         </div>
 
         <div id="formError" class="form-error-banner" hidden>
-          Something went wrong. Email us directly at
-          <a
-            href="mailto:info@gabrielholdingsinc.com"
-            style="color: inherit; text-decoration: underline"
-            >info@gabrielholdingsinc.com</a
-          >.
+          Something went wrong. Please try again later.
         </div>
 
         <div class="contact-meta">
@@ -1085,7 +1080,7 @@
           return ok;
         }
 
-        form.querySelectorAll("input, textarea").forEach((el) => {
+        form.querySelectorAll(".form-group input, .form-group textarea").forEach((el) => {
           el.addEventListener("blur", () => validate(el));
           el.addEventListener("input", () => {
             if (el.closest(".form-group").classList.contains("invalid"))
@@ -1096,7 +1091,7 @@
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
           let ok = true;
-          form.querySelectorAll("input, textarea").forEach((el) => {
+          form.querySelectorAll(".form-group input, .form-group textarea").forEach((el) => {
             if (!validate(el)) ok = false;
           });
           if (!ok) return;
